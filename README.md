@@ -5,7 +5,6 @@ Portfolio FastAPI is a modern web application that provides user management and 
 ## Technologies and Tools
 
 - **FastAPI** – A modern, fast web application framework.
-- **SQLAlchemy** – ORM for database management.
 - **PostgreSQL** – Relational database.
 - **Docker** – Creating and managing containerized environments.
 - **Poetry** – Python dependency management.
