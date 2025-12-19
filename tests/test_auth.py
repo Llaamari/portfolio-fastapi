@@ -6,15 +6,24 @@ client = TestClient(app)
 
 
 def test_login_and_me():
+    # Create user before logging in
+    email = "user@example.com"
+    password = "password123"
+
+    client.post(
+        "/users/",
+        json={"email": email, "password": password},
+    )
+
     # login
     response = client.post(
         "/auth/login",
-        data={"username": "user@example.com", "password": "password123"},
+        data={"username": email, "password": password},
     )
     assert response.status_code == 200
     token = response.json()["access_token"]
 
-    # access protected route
+    # access to a protected route
     response = client.get(
         "/users/me",
         headers={"Authorization": f"Bearer {token}"},
